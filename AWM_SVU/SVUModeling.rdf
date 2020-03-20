@@ -1,0 +1,596 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >]>
+<rdf:RDF 
+xmlns="http://www.semanticweb.org/noufal/ontologies/2019/4/untitled-ontology-14#"
+xml:base="http://www.semanticweb.org/noufal/ontologies/2019/4/untitled-ontology-14"
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+xmlns:owl="http://www.w3.org/2002/07/owl#"
+xmlns:foaf="http://xmlns.com/foaf/0.1/#"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<owl:Ontology rdf:about="http://www.semanticweb.org/noufal/ontologies/2019/4/untitled-ontology-14"/>
+<owl:Class rdf:ID="SVU"/>
+<owl:Class rdf:ID="Course">
+ <owl:unionOf rdf:parseType="Collection">
+     <owl:Class rdf:about="#CoursesOFTelecommunicationsTechnologyProgram"/>
+     <owl:Class rdf:about="#CoursesOFMassCommunicationProgram"/>
+     <owl:Class rdf:about="#CoursesOFEconomicProgram"/>
+     <owl:Class rdf:about="#CoursesOFInformationTechnologyProgram"/>
+     <owl:Class rdf:about="#CoursesOFLawProgram"/>
+     <owl:Class rdf:about="#CourseOfMWSProgram"/>
+     <owl:Class rdf:about="#CourseOfMWTProgram"/>
+     <owl:Class rdf:about="#CourseOfPMTMProgram"/>
+     <owl:Class rdf:about="#CourseOfMIQProgram"/>
+     <owl:Class rdf:about="#CourseOfMBAProgram"/>
+  </owl:unionOf>
+</owl:Class>
+<owl:Class rdf:ID="Program"/>    
+<owl:Class rdf:ID="Person"> 
+  <owl:unionOf rdf:parseType="Collection">
+   <owl:Class rdf:about="#Director"/>
+   <owl:Class rdf:about="#Teacher"/>
+   <owl:Class rdf:about="#Student"/>
+</owl:unionOf>
+</owl:Class>
+<owl:Class rdf:ID="Teacher">
+<rdfs:subClassOf rdf:resource="#Person" />
+  <owl:unionOf rdf:parseType="Collection">
+   <owl:Class rdf:about="#TeachersOfTelecommunicationsTechnologyProgram"/>  
+   <owl:Class rdf:about="#TeachersOfMassCommunicationProgram"/>
+   <owl:Class rdf:about="#TeachersOfEconomicProgram"/>
+   <owl:Class rdf:about="#TeachersOfInformationTechnologyProgram"/>
+   <owl:Class rdf:about="#TeachersOfLawProgram"/>
+   <owl:Class rdf:about="#TeachersOfMWSProgram"/>
+   <owl:Class rdf:about="#TeachersOfMWSProgram"/>
+   <owl:Class rdf:about="#CourseOfPMTMProgram"/>
+   <owl:Class rdf:about="#TeachersOfMIQProgram"/>
+    <owl:Class rdf:about="#TeachersOfMBAProgram"/>
+  </owl:unionOf>
+</owl:Class>
+<owl:Class rdf:ID="Director">  
+<rdfs:subClassOf rdf:resource="#Person" />
+  <owl:unionOf rdf:parseType="Collection">
+   <owl:Class rdf:about="#TelecommunicationsTechnologyDirectorINFO"/>
+   <owl:Class rdf:about="#MassCommunicationDirectorINFO"/>
+   <owl:Class rdf:about="#EconomicDirectorINFO"/>
+   <owl:Class rdf:about="#InformationTechnologyDirectorINFO"/>
+   <owl:Class rdf:about="#LawDirectorINFO"/>
+   <owl:Class rdf:about="#MWSDirectorINFO"/>
+   <owl:Class rdf:about="#MWTDirectorINFO"/>
+   <owl:Class rdf:about="#PMTMDirectorInformatios"/>
+   <owl:Class rdf:about="#MIQDirectorINFO"/>
+   <owl:Class rdf:about="#MBADirectorINFO"/>
+  </owl:unionOf> 
+</owl:Class>
+<owl:Class rdf:ID="Student">
+    <rdfs:subClassOf rdf:resource="#Person" /> 
+</owl:Class>
+<owl:Class rdf:ID="Session"/>
+  <owl:ObjectProperty rdf:ID="Involves">
+    <rdfs:domain rdf:resource="#Program" />
+    <rdfs:range rdf:resource="#Course" />
+  </owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="isManagedBy">
+    <rdfs:domain rdf:resource="#Program" />
+    <rdfs:range rdf:resource="#Director" />
+    <owl:inverseOf rdf:resource="#Manages"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="Manages">
+   <rdfs:domain rdf:resource="#Director" />
+   <rdfs:range rdf:resource="#Program" />
+   <owl:inverseOf rdf:resource="#isManagedBy"/>
+</owl:ObjectProperty>   
+<owl:ObjectProperty rdf:ID="StudyingAtSVU">
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Program" />
+    <rdfs:range rdf:resource="#SVU" />
+</owl:ObjectProperty>
+  <owl:Class rdf:ID="SVUsProgram">
+    <owl:StudyingAtSVU>Bachelor Program</owl:StudyingAtSVU>
+    <owl:StudyingAtSVU>Master Program</owl:StudyingAtSVU>
+    <owl:StudyingAtSVU>Training Program</owl:StudyingAtSVU>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="BachelorProgramAtSVU">
+   <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+   <rdfs:domain rdf:resource="#Program" />
+   <rdfs:range rdf:resource="#SVU" />
+ </owl:ObjectProperty>
+  <owl:Class rdf:ID="BachelorProgram">
+    <owl:BachelorProgramAtSVU>Bachelor of Science in Economics</owl:BachelorProgramAtSVU>
+    <owl:BachelorProgramAtSVU>Bachelor in Mass Communication</owl:BachelorProgramAtSVU>
+   <owl:BachelorProgramAtSVU>Bachelor in Law Sciences</owl:BachelorProgramAtSVU>
+    <owl:BachelorProgramAtSVU>Bachelor of Information Technology Engineering</owl:BachelorProgramAtSVU>
+  <owl:BachelorProgramAtSVU>Bachelor in Communications Technology </owl:BachelorProgramAtSVU>
+</owl:Class>
+ <owl:ObjectProperty rdf:ID="MasterProgramAtSVU">
+  <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Program" />
+  <rdfs:range rdf:resource="#SVU" />
+</owl:ObjectProperty>
+  <owl:Class rdf:ID="MasterProgram">
+   <owl:MasterProgramAtSVU>Master in Web Technology </owl:MasterProgramAtSVU>
+   <owl:MasterProgramAtSVU>Master in Technology Management</owl:MasterProgramAtSVU>
+   <owl:MasterProgramAtSVU>Master In Quality Management </owl:MasterProgramAtSVU>
+   <owl:MasterProgramAtSVU>Master in Web Sciences </owl:MasterProgramAtSVU>
+   <owl:MasterProgramAtSVU>Master in Business Administration</owl:MasterProgramAtSVU>
+   <owl:MasterProgramAtSVU>Higher Education System and Specialization and qualifying Studies</owl:MasterProgramAtSVU>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="TrainingProgramAtSVU">  
+     <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+     <rdfs:domain rdf:resource="#Program" />
+     <rdfs:range rdf:resource="#SVU" />
+</owl:ObjectProperty>
+<owl:Class rdf:ID="TrainingProgram">
+  <owl:TrainingProgramAtSVU>Arabic Learning System ALS</owl:TrainingProgramAtSVU>
+  <owl:TrainingProgramAtSVU>Networking and Information Security Training NIST</owl:TrainingProgramAtSVU>
+  <owl:TrainingProgramAtSVU>Program for training children and youths</owl:TrainingProgramAtSVU>
+</owl:Class>
+<owl:Class rdf:ID="TelecommunicationsTechnology">    
+   <rdfs:subClassOf rdf:resource="#Program" />
+</owl:Class> 
+<owl:ObjectProperty rdf:ID="CoursesOfTelecommunicationsTechnology">
+    <rdfs:domain rdf:resource="#TelecommunicationsTechnology" />
+    <rdfs:range rdf:resource="#Course" />
+    <rdfs:subPropertyOf rdf:resource="#Involves"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+</owl:ObjectProperty>
+<owl:Class rdf:ID="CoursesOFTelecommunicationsTechnologyProgram">
+      <rdf:type rdf:resource="#Course"/>
+    <owl:CoursesOfTelecommunicationsTechnology>Wireless Communications Networks</owl:CoursesOfTelecommunicationsTechnology>
+    <owl:CoursesOfTelecommunicationsTechnology>Mobile communications Systems</owl:CoursesOfTelecommunicationsTechnology>
+    <owl:CoursesOfTelecommunicationsTechnology>Digital Transmission Technologies</owl:CoursesOfTelecommunicationsTechnology>
+    <owl:CoursesOfTelecommunicationsTechnology>Communications Management</owl:CoursesOfTelecommunicationsTechnology>
+    <owl:CoursesOfTelecommunicationsTechnology>Data Communications</owl:CoursesOfTelecommunicationsTechnology>
+</owl:Class>
+<owl:DataTypeProperty rdf:ID="TelecommunicationsTechnologyDirectorInfoProperty">       
+   <rdfs:domain rdf:resource="#TelecommunicationsTechnologyDirectorINFO"/>
+   <rdfs:range rdf:resource="#xsd:string"/>
+</owl:DataTypeProperty>
+<owl:Class rdf:ID="TelecommunicationsTechnologyDirectorINFO">
+        <rdf:type rdf:resource="#Director"/>
+        <owl:TelecommunicationsTechnologyDirectorInfoProperty rdf:datatype="&xsd;string">Name: Dr.khaled yazbek </owl:TelecommunicationsTechnologyDirectorInfoProperty>
+        <owl:TelecommunicationsTechnologyDirectorInfoProperty rdf:datatype="&xsd;string">MBox: t_kyazbek@svuonline.org</owl:TelecommunicationsTechnologyDirectorInfoProperty>
+</owl:Class>   
+<owl:ObjectProperty rdf:ID="TeachersOfTelecommunicationsTechnology">
+  <rdfs:domain rdf:resource="#TelecommunicationsTechnology" />
+  <rdfs:range rdf:resource="#Teacher" />
+</owl:ObjectProperty>    
+<owl:Class rdf:ID="TeachersOfTelecommunicationsTechnologyProgram">
+    <rdf:type rdf:resource="#Teacher"/>
+    <owl:TeachersOfTelecommunicationsTechnology>Dr.Chadi ALBITAR</owl:TeachersOfTelecommunicationsTechnology>
+    <owl:TeachersOfTelecommunicationsTechnology>Dr.Ali Kazem</owl:TeachersOfTelecommunicationsTechnology>
+    <owl:TeachersOfTelecommunicationsTechnology>Dr.Ali Hassan</owl:TeachersOfTelecommunicationsTechnology>
+    <owl:TeachersOfTelecommunicationsTechnology>Dr.Hussam shbeeb</owl:TeachersOfTelecommunicationsTechnology>
+    <owl:TeachersOfTelecommunicationsTechnology>Dr.suleiman ali</owl:TeachersOfTelecommunicationsTechnology>
+</owl:Class>
+  <owl:Class rdf:ID="MassCommunication">
+    <rdfs:subClassOf rdf:resource="#Program" />
+  </owl:Class>
+  <owl:objectProperty rdf:ID="CoursesOfMassCommunication">
+    <rdfs:domain rdf:resource="#MassCommunication" />
+    <rdfs:range rdf:resource="#Course" />
+    <rdfs:subPropertyOf rdf:resource="#Involves"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:objectProperty>
+  <owl:Courses rdf:ID="CoursesOFMassCommunicationProgram">
+        <rdf:type rdf:resource="#Course"/>
+      <owl:CoursesOfMassCommunication>Electronic Marketing</owl:CoursesOfMassCommunication>
+      <owl:CoursesOfMassCommunication>TV Interview and Reportage</owl:CoursesOfMassCommunication>
+      <owl:CoursesOfMassCommunication>Public Relations and Negotiation</owl:CoursesOfMassCommunication>
+      <owl:CoursesOfMassCommunication>Planning of Advertisement Content</owl:CoursesOfMassCommunication>
+      <owl:CoursesOfMassCommunication>Trade Mark Management</owl:CoursesOfMassCommunication>
+      <owl:CoursesOfMassCommunication>Internet and Society</owl:CoursesOfMassCommunication>
+  </owl:Courses>
+  <owl:DataTypeProperty rdf:ID="MassCommunicationDirectorInfoProperty">   
+    <rdfs:domain rdf:resource="#MassCommunicationDirectorINFO"/>
+    <rdfs:range rdf:resource="#xsd:string"/>
+  </owl:DataTypeProperty>
+  <owl:Class rdf:ID="MassCommunicationDirectorINFO">
+    <rdf:type rdf:resource="#Director"/>
+    <owl:MassCommunicationDirectorInfoProperty rdf:datatype="&xsd;string"> Name: Dr.Abdulaziz Kabalan </owl:MassCommunicationDirectorInfoProperty>
+    <owl:MassCommunicationDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: bmc_pd@svuonline.org </owl:MassCommunicationDirectorInfoProperty>
+  </owl:Class>
+  <owl:objectProperty rdf:ID="TeachersOfMassCommunication">
+    <rdfs:domain rdf:resource="#MassCommunication" />
+    <rdfs:range rdf:resource="#Teacher" />
+  </owl:objectProperty>
+  <owl:Class rdf:ID="TeachersOfMassCommunicationProgram">
+     <rdf:type rdf:resource="#Teacher"/>
+     <owl:TeachersOfMassCommunication>Dr.khadijh alrehya</owl:TeachersOfMassCommunication>
+     <owl:TeachersOfMassCommunication>Dr.Majdi AlFares</owl:TeachersOfMassCommunication>
+     <owl:TeachersOfMassCommunication>Dr.Bariea Shukeir</owl:TeachersOfMassCommunication>
+     <owl:TeachersOfMassCommunication>Dr.ayman dayoub</owl:TeachersOfMassCommunication>
+     <owl:TeachersOfMassCommunication>Dr.Arabi Almassri</owl:TeachersOfMassCommunication>
+  </owl:Class>    
+ <owl:Class rdf:ID="Economic">
+    <rdfs:subClassOf rdf:resource="#Program" />
+  </owl:Class>
+  <owl:objectProperty rdf:ID="CoursesOfEconomic">
+    <rdfs:subPropertyOf rdf:resource ="#Involves"/>
+    <rdfs:domain rdf:resource="#Economic" />
+    <rdfs:range rdf:resource="#Course" />
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:objectProperty>
+  <owl:Class rdf:ID="CoursesOFEconomicProgram">
+      <rdf:type rdf:resource="#Course"/>
+    <owl:CoursesOfEconomic>Financial Management</owl:CoursesOfEconomic>
+    <owl:CoursesOfEconomic>macroeconomics Analysis</owl:CoursesOfEconomic>
+    <owl:CoursesOfEconomic>Business Environment</owl:CoursesOfEconomic>
+    <owl:CoursesOfEconomic>Administrative Organization</owl:CoursesOfEconomic>
+    <owl:CoursesOfEconomic>Computer Applications Of Management</owl:CoursesOfEconomic>
+    <owl:CoursesOfEconomic>Financial Accounting of Companies</owl:CoursesOfEconomic>
+    <owl:CoursesOfEconomic>Database management</owl:CoursesOfEconomic>
+    <owl:CoursesOfEconomic>Small and medium Business Managemen</owl:CoursesOfEconomic>
+    <owl:CoursesOfEconomic>Administrative Economy</owl:CoursesOfEconomic>
+    <owl:CoursesOfEconomic>Operations researches</owl:CoursesOfEconomic>
+  </owl:Class>
+  <owl:DataTypeProperty rdf:ID="EconomicDirectorInfoProperty">
+    <rdfs:domain rdf:resource="#EconomicDirectorINFO"/>
+    <rdfs:range rdf:resource="#xsd:string"/>
+  </owl:DataTypeProperty>    
+  <owl:Class rdf:ID="EconomicDirectorINFO">
+    <rdf:type rdf:resource="#Director"/>
+    <owl:sameAs rdf:resource="#DrFatimaBader"/>
+    <owl:EconomicDirectorInfoProperty rdf:datatype="&xsd;string">  Name: Dr.Fatima Bader</owl:EconomicDirectorInfoProperty>
+    <owl:EconomicDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: lfl_vice@svuonline.org</owl:EconomicDirectorInfoProperty>
+    <owl:EconomicDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: bsce_pd@svuonline.org</owl:EconomicDirectorInfoProperty>
+</owl:Class>
+  <owl:objectProperty rdf:ID="TeachersOfEconomic">
+    <rdfs:domain rdf:resource="#Economic" />
+    <rdfs:range rdf:resource="#Teacher" />
+  </owl:objectProperty>
+  <owl:Class rdf:ID="TeachersOfEconomicProgram">
+     <rdf:type rdf:resource="#Teacher"/>
+     <owl:TeachersOfEconomic rdf:ID="DrFatimaBader">Dr.Fatima Bader</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.Huda Rajab</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.awad dahdal</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.Ahmad Tabbaa</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.Abdulsalam zidan</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.Fairouz Abu Kheir</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.hussain kabalan</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.Issam Haidar</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.Hayan Dib</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.Fidaa Nasser</owl:TeachersOfEconomic>
+     <owl:TeachersOfEconomic>Dr.Firas Kashalo</owl:TeachersOfEconomic>
+  </owl:Class>    
+<owl:Class rdf:ID="InformationTechnology">
+    <rdfs:subClassOf rdf:resource="#Program" />
+  </owl:Class>
+  <owl:objectProperty rdf:ID="CoursesOfInformationTechnology">
+    <rdfs:subPropertyOf rdf:resource ="#Involves"/>
+      <rdfs:domain rdf:resource="#InformationTechnology" />
+      <rdfs:range rdf:resource="#Course" />
+      <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:objectProperty>
+  <owl:Class rdf:ID="CoursesOFInformationTechnologyProgram">
+      <rdf:type rdf:resource="#Course"/>
+    <owl:CoursesOfInformationTechnology>Computer Skills</owl:CoursesOfInformationTechnology>
+    <owl:CoursesOfInformationTechnology>Advanced SQL Programming</owl:CoursesOfInformationTechnology>
+      <owl:CoursesOfInformationTechnology>Linux Platform</owl:CoursesOfInformationTechnology>
+        <owl:CoursesOfInformationTechnology>Windows Platform</owl:CoursesOfInformationTechnology>
+          <owl:CoursesOfInformationTechnology>Network and IT Infrastructure Security</owl:CoursesOfInformationTechnology>
+            <owl:CoursesOfInformationTechnology>Data Analysis</owl:CoursesOfInformationTechnology>
+              <owl:CoursesOfInformationTechnology>Decision Theory</owl:CoursesOfInformationTechnology>
+                <owl:CoursesOfInformationTechnology>Mathematical Algebra</owl:CoursesOfInformationTechnology>
+                  <owl:CoursesOfInformationTechnology>Microeconomics</owl:CoursesOfInformationTechnology>
+                    <owl:CoursesOfInformationTechnology>Oracle Database Administration</owl:CoursesOfInformationTechnology>
+  </owl:Class>
+  <owl:DataTypeProperty rdf:ID="InformationTechnologyDirectorInfoProperty">
+    <rdfs:domain rdf:resource="#InformationTechnologyDirectorINFO"/>
+    <rdfs:range rdf:resource="#xsd:string"/>
+  </owl:DataTypeProperty>
+  <owl:Class rdf:ID="InformationTechnologyDirectorINFO">
+     <rdf:type rdf:resource="#Director"/>
+    <owl:sameAs rdf:resource="#RaddadAlking"/>
+    <owl:InformationTechnologyDirectorInfoProperty rdf:datatype="&xsd;string"> Name: Dr.Raddad Alking</owl:InformationTechnologyDirectorInfoProperty>
+    <owl:InformationTechnologyDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: bit_pd@svuonline.org</owl:InformationTechnologyDirectorInfoProperty>
+</owl:Class>
+  <owl:objectProperty rdf:ID="TeachersOfInformationTechnology">
+    <rdfs:domain rdf:resource="#InformationTechnology" />
+    <rdfs:range rdf:resource="#Teacher" />
+  </owl:objectProperty>
+  <owl:Class rdf:ID="TeachersOfInformationTechnologyProgram">
+     <rdf:type rdf:resource="#Teacher"/>
+     <owl:TeachersOfInformationTechnology rdf:ID="RaddadAlking">Dr.Raddad Alking</owl:TeachersOfInformationTechnology>
+     <owl:TeachersOfInformationTechnology>Dr.Ghazwan ali</owl:TeachersOfInformationTechnology>
+     <owl:TeachersOfInformationTechnology>Dr.farqad Abbas</owl:TeachersOfInformationTechnology>
+     <owl:TeachersOfInformationTechnology>Dr.Ahmad Nasleh</owl:TeachersOfInformationTechnology>
+     <owl:TeachersOfInformationTechnology>Dr.diaa khalouf</owl:TeachersOfInformationTechnology>
+     <owl:TeachersOfInformationTechnology>Dr.Fatima Bader</owl:TeachersOfInformationTechnology>
+     <owl:TeachersOfInformationTechnology>Dr.Ghassan Foetti</owl:TeachersOfInformationTechnology>
+     <owl:TeachersOfInformationTechnology>Dr.Hanan Al-Samman</owl:TeachersOfInformationTechnology>
+     <owl:TeachersOfInformationTechnology>Dr.Jamal Khalifeh</owl:TeachersOfInformationTechnology>
+     <owl:TeachersOfInformationTechnology>Dr.Mohamad Hamada</owl:TeachersOfInformationTechnology>
+  </owl:Class> 
+  <owl:Class rdf:ID="law">
+    <rdfs:subClassOf rdf:resource="#Program" />
+  </owl:Class>
+  <owl:objectProperty rdf:ID="CoursesOfLaw">
+    <rdfs:domain rdf:resource="#law" />
+    <rdfs:range rdf:resource="#Course" />
+     <rdfs:subPropertyOf rdf:resource ="#Involves"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:objectProperty>
+  <owl:Class rdf:ID="CoursesOFLawProgram">
+     <rdf:type rdf:resource="#Course"/>
+    <owl:CoursesOfLaw>Criminal Law</owl:CoursesOfLaw>
+      <owl:CoursesOfLaw>Civil Law</owl:CoursesOfLaw>
+        <owl:CoursesOfLaw>Cyber Crime</owl:CoursesOfLaw>
+          <owl:CoursesOfLaw>Drugs Law</owl:CoursesOfLaw>
+            <owl:CoursesOfLaw>Trade Marks</owl:CoursesOfLaw>
+              <owl:CoursesOfLaw>Labor Law</owl:CoursesOfLaw>
+  </owl:Class>
+  <owl:DataTypeProperty rdf:ID="LawDirectorInfoProperty">
+    <rdfs:domain rdf:resource="#LawDirectorINFO"/>
+    <rdfs:range rdf:resource="#xsd:string"/>
+  </owl:DataTypeProperty>
+  
+  <owl:Class rdf:ID="LawDirectorINFO">
+       <rdf:type rdf:resource="#Director"/>
+       <owl:sameAs rdf:resource="#AliAlJasem"/>
+    <owl:LawDirectorInfoProperty rdf:datatype="&xsd;string"> Name: Dr.Ali Ibraheem Al Jasem</owl:LawDirectorInfoProperty>
+    <owl:LawDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: bl_pd@svuonline.org</owl:LawDirectorInfoProperty>
+  </owl:Class>
+  <owl:objectProperty rdf:ID="TeachersOfLaw">
+    <rdfs:domain rdf:resource="#law" />
+    <rdfs:range rdf:resource="#Teacher" />
+  </owl:objectProperty>
+  <owl:Class rdf:ID="TeachersOfLawProgram">
+    <rdf:type rdf:resource="#Teacher"/>
+    <owl:TeachersOfLaw rdf:ID="AliAlJasem">Dr.Ali Ibraheem Al Jasem</owl:TeachersOfLaw>
+    <owl:TeachersOfLaw>Dr.basima al mahdi</owl:TeachersOfLaw>
+    <owl:TeachersOfLaw>Dr.AbdulMoneam Alsakka</owl:TeachersOfLaw>
+    <owl:TeachersOfLaw>Dr.Abd Alkqder Borghol</owl:TeachersOfLaw>
+    <owl:TeachersOfLaw>Dr.Abdulkader Habbache</owl:TeachersOfLaw>
+    <owl:TeachersOfLaw>Dr.Bassam Sheikhalishrah</owl:TeachersOfLaw>
+  </owl:Class>
+
+<owl:Class rdf:ID="MWS">
+    <rdfs:subClassOf rdf:resource="#Program" />
+  </owl:Class>
+  <owl:objectProperty rdf:ID="CourseOfMWS">
+    <rdfs:domain rdf:resource="#MWS" />
+    <rdfs:range rdf:resource="#Course" />
+     <rdfs:subPropertyOf rdf:resource ="#Involves"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:objectProperty>
+  <owl:Class rdf:ID="CourseOfMWSProgram">
+  <rdf:type rdf:resource="#Course"/>
+    <owl:CoursesOfMWS>Web Mining</owl:CoursesOfMWS>
+      <owl:CoursesOfMWS>Data Mining</owl:CoursesOfMWS>
+        <owl:CoursesOfMWS>Web Security</owl:CoursesOfMWS>
+          <owl:CoursesOfMWS>Mobile Web</owl:CoursesOfMWS>
+            <owl:CoursesOfMWS>Information Retrieval</owl:CoursesOfMWS>
+              <owl:CoursesOfMWS>Web Engineering</owl:CoursesOfMWS>
+                <owl:CoursesOfMWS>Hyper and Multimedia</owl:CoursesOfMWS>
+                  <owl:CoursesOfMWS>Distributed Applications Programming</owl:CoursesOfMWS>
+                    <owl:CoursesOfMWS>Web Programming</owl:CoursesOfMWS>
+                      <owl:CoursesOfMWS>Advanced Concepts in Data Repository and Data Exchange</owl:CoursesOfMWS>
+  </owl:Class>
+  <owl:DataTypeProperty rdf:ID="MWSDirectorInfoProperty">
+    <rdfs:domain rdf:resource="#MWSDirectorINFO"/>
+    <rdfs:range rdf:resource="#xsd:string"/>
+  </owl:DataTypeProperty>
+  <owl:Class rdf:ID="MWSDirectorINFO">
+    <rdf:type rdf:resource="#Director"/>
+    <owl:sameAs rdf:resource="#ProfBasselAlkhatib"/>
+    <owl:MWSDirectorInfoProperty rdf:datatype="&xsd;string"> Name: Dr.Bassel Alkhatib</owl:MWSDirectorInfoProperty>
+    <owl:MWSDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: t_balkhatib@svuonline.org</owl:MWSDirectorInfoProperty>
+    <owl:MWSDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: basselk@scs-net.org </owl:MWSDirectorInfoProperty>
+  </owl:Class>
+  <owl:objectProperty rdf:ID="TeachersOfMWS">
+    <rdfs:domain rdf:resource="#MWS" />
+    <rdfs:range rdf:resource="#Teacher" />
+  </owl:objectProperty>
+  <owl:Class rdf:ID="TeachersOfMWSProgram">
+    <rdf:type rdf:resource="#Teacher"/>
+    <owl:TeachersOfMWS rdf:ID="ProfBasselAlkhatib">Dr.Bassel Alkhatib</owl:TeachersOfMWS>
+    <owl:TeachersOfMWS>Dr.Bassam Kurdy</owl:TeachersOfMWS>
+    <owl:TeachersOfMWS>Dr.Mohammad Saeed AboTrab</owl:TeachersOfMWS>
+    <owl:TeachersOfMWS>Dr.Moutasem Shafamry</owl:TeachersOfMWS>
+    <owl:TeachersOfMWS>Dr.Wassim Aljuneidi</owl:TeachersOfMWS>
+    <owl:TeachersOfMWS>Dr.Mohammad Aljuneidi</owl:TeachersOfMWS>
+    <owl:TeachersOfMWS>Dr.Muhammad Mazen Almustafa</owl:TeachersOfMWS>
+    <owl:TeachersOfMWS>Dr.Oumayma Al Hakawati Al Dakkak</owl:TeachersOfMWS>
+    <owl:TeachersOfMWS>Dr.Khaled Omar</owl:TeachersOfMWS>
+    <owl:TeachersOfMWS>Dr.George Karraz</owl:TeachersOfMWS>
+  </owl:Class>
+<owl:Class rdf:ID="MWT">
+    <rdfs:subClassOf rdf:resource="#Program" />
+  </owl:Class>
+  <owl:objectProperty rdf:ID="CourseOfMWT">
+    <rdfs:domain rdf:resource="#MWT" />
+    <rdfs:range rdf:resource="#Course" />
+     <rdfs:subPropertyOf rdf:resource ="#Involves"/>
+    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:objectProperty>
+  <owl:Class rdf:ID="CourseOfMWTProgram">
+  <rdf:type rdf:resource="#Course"/>
+    <owl:CoursesOfMWT>Internet Security</owl:CoursesOfMWT>
+      <owl:CoursesOfMWT>Data Exploring</owl:CoursesOfMWT>
+        <owl:CoursesOfMWT>Mobile Services</owl:CoursesOfMWT>
+          <owl:CoursesOfMWT>Internet and Multimedia</owl:CoursesOfMWT>
+            <owl:CoursesOfMWT>Web Engineering</owl:CoursesOfMWT>
+              <owl:CoursesOfMWT>Electronic Business</owl:CoursesOfMWT>
+                <owl:CoursesOfMWT>Java Application Development</owl:CoursesOfMWT>
+                  <owl:CoursesOfMWT>Networks</owl:CoursesOfMWT>
+                    <owl:CoursesOfMWT>XML Techniques</owl:CoursesOfMWT>
+                      <owl:CoursesOfMWT>Web Design</owl:CoursesOfMWT>
+  </owl:Class>
+  <owl:DataTypeProperty rdf:ID="MWTDirectorInfoProperty">
+    <rdfs:domain rdf:resource="#MWTDirectorINFO"/>
+    <rdfs:range rdf:resource="#xsd:string"/>
+  </owl:DataTypeProperty>
+    <owl:Class rdf:ID="MWTDirectorINFO">
+      <rdf:type rdf:resource="#Director"/>
+      <owl:sameAs rdf:resource="#ProfSira"/>
+      <owl:MWTDirectorInfoProperty rdf:datatype="&xsd;string"> Name: Dr.Sira W. ASTOUR</owl:MWTDirectorInfoProperty>
+      <owl:MWTDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: MWT_pd@svuonline.org</owl:MWTDirectorInfoProperty>
+</owl:Class>
+  <owl:objectProperty rdf:ID="TeachersOfMWT">
+    <rdfs:domain rdf:resource="#MWT" />
+    <rdfs:range rdf:resource="#Teacher" />
+  </owl:objectProperty>
+  <owl:Class rdf:ID="TeachersOfMWTProgram">
+   <rdf:type rdf:resource="#Teacher"/>
+   <owl:TeachersOfMWT rdf:ID="ProfSira">Dr.Sira W. ASTOUR</owl:TeachersOfMWT>
+   <owl:TeachersOfMWT>Dr.Bassam Kurdy</owl:TeachersOfMWT>
+   <owl:TeachersOfMWT>Dr.Mohammad Saeed AboTrab</owl:TeachersOfMWT>
+   <owl:TeachersOfMWT>Dr.Moutasem Shafamry</owl:TeachersOfMWT>
+   <owl:TeachersOfMWT>Dr.Tarek Sati</owl:TeachersOfMWT>
+   <owl:TeachersOfMWT>Dr.Lubna Altarah</owl:TeachersOfMWT>
+   <owl:TeachersOfMWT>Dr.Muhammad Mazen Almustafa</owl:TeachersOfMWT>
+  </owl:Class>
+<owl:Class rdf:ID="PMTM">
+    <rdfs:subClassOf rdf:resource="#Program" />
+  </owl:Class>
+  <owl:objectProperty rdf:ID="CourseOfPMTM">
+    <rdfs:domain rdf:resource="#PMTM" />
+    <rdfs:range rdf:resource="#Course" />
+     <rdfs:subPropertyOf rdf:resource ="#Involves"/>
+  <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:objectProperty>
+  <owl:Class rdf:ID="CourseOfPMTMProgram">
+       <rdf:type rdf:resource="#Course"/>
+    <owl:CoursesOfPMTM>Management and Economics of Technology</owl:CoursesOfPMTM>
+      <owl:CoursesOfPMTM>Supply Chain Management</owl:CoursesOfPMTM>
+        <owl:CoursesOfPMTM>Information and Communication Technology</owl:CoursesOfPMTM>
+          <owl:CoursesOfPMTM>Technology Change and Innovation</owl:CoursesOfPMTM>
+            <owl:CoursesOfPMTM>Scientific Methods in Management</owl:CoursesOfPMTM>
+              <owl:CoursesOfPMTM>Accounting and Financial Management</owl:CoursesOfPMTM>
+                <owl:CoursesOfPMTM>Quality, Reliability and Maintainability</owl:CoursesOfPMTM>
+                  <owl:CoursesOfPMTM>Technology Development and Transfer</owl:CoursesOfPMTM>
+                    <owl:CoursesOfPMTM>Management Information Systems</owl:CoursesOfPMTM>
+                      <owl:CoursesOfPMTM>System Engineering</owl:CoursesOfPMTM>
+                        <owl:CoursesOfPMTM>Industrial and Technological Marketing</owl:CoursesOfPMTM>
+                          <owl:CoursesOfPMTM>Technology Project Management</owl:CoursesOfPMTM>
+                            <owl:CoursesOfPMTM>Business and Technology Law</owl:CoursesOfPMTM>
+                              <owl:CoursesOfPMTM>New Product Development</owl:CoursesOfPMTM>
+                                <owl:CoursesOfPMTM>Cases in Technology Management</owl:CoursesOfPMTM>
+  </owl:Class>
+  <owl:DataTypeProperty rdf:ID="PMTMDirectorInfoProperty">
+      <rdfs:domain rdf:resource="#PMTMDirectorInformatios"/>
+      <rdfs:range rdf:resource="#xsd:string"/>
+  </owl:DataTypeProperty>
+  <owl:Class rdf:ID="PMTMDirectorInformatios">
+    <rdf:type rdf:resource="#Director"/>
+      <owl:sameAs rdf:resource="#ProfIbrahim"/>
+    <owl:PMTMDirectorInfoProperty rdf:datatype="&xsd;string"> Name: Dr.Ibrahim Chouaib</owl:PMTMDirectorInfoProperty>
+     <owl:PMTMDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: t_ichouaib@svuonline.org </owl:PMTMDirectorInfoProperty>
+  </owl:Class>
+  <owl:objectProperty rdf:ID="TeachersOfPMTM">
+    <rdfs:domain rdf:resource="#PMTM" />
+    <rdfs:range rdf:resource="#Teacher" />
+  </owl:objectProperty>
+  <owl:Class rdf:ID="TeachersOfPMTMProgram">
+    <rdf:type rdf:resource="#Teacher"/>
+    <owl:TeachersOfPMTM rdf:ID="ProfIbrahim">Dr.Ibrahim Chouaib</owl:TeachersOfPMTM>
+    <owl:TeachersOfPMTM>Dr.Adel ALKAFRI</owl:TeachersOfPMTM>
+    <owl:TeachersOfPMTM>Dr.Ahmad Tabbaa</owl:TeachersOfPMTM>
+    <owl:TeachersOfPMTM>Dr.Akram Nasser</owl:TeachersOfPMTM>
+    <owl:TeachersOfPMTM>Dr.Anmar Orabi</owl:TeachersOfPMTM>
+    <owl:TeachersOfPMTM>Dr.Imad Chalfoun</owl:TeachersOfPMTM>
+    <owl:TeachersOfPMTM>Dr.Louay Saleh</owl:TeachersOfPMTM>
+  </owl:Class>
+<owl:Class rdf:ID="MIQ">
+    <rdfs:subClassOf rdf:resource="#Program" />
+  </owl:Class>
+  <owl:objectProperty rdf:ID="CourseOfMIQ">
+    <rdfs:domain rdf:resource="#MIQ" />
+    <rdfs:range rdf:resource="#Course" />
+   <rdfs:subPropertyOf rdf:resource ="#Involves"/>
+  <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:objectProperty>
+  <owl:Class rdf:ID="CourseOfMIQProgram">
+  <rdf:type rdf:resource="#Course"/>
+    <owl:CoursesOfMIQ>Marketing and customer relationship management</owl:CoursesOfMIQ>
+      <owl:CoursesOfMIQ>Supply Chain Management</owl:CoursesOfMIQ>
+        <owl:CoursesOfMIQ>Planning and Strategic Analysis</owl:CoursesOfMIQ>
+          <owl:CoursesOfMIQ>Service Quality Management</owl:CoursesOfMIQ>
+            <owl:CoursesOfMIQ>Product and Process Design</owl:CoursesOfMIQ>
+              <owl:CoursesOfMIQ>Design and Analysis of Experiments</owl:CoursesOfMIQ>
+                <owl:CoursesOfMIQ>Measurement Systems</owl:CoursesOfMIQ>
+                  <owl:CoursesOfMIQ>Internal Quality Audit</owl:CoursesOfMIQ>
+                    <owl:CoursesOfMIQ>Statistical Quality Control</owl:CoursesOfMIQ>
+                      <owl:CoursesOfMIQ>Project Quality Management</owl:CoursesOfMIQ>
+  </owl:Class>
+  <owl:DataTypeProperty rdf:ID="MIQDirectorInfoProperty">
+    <rdfs:domain rdf:resource="#MIQDirectorINFO"/>
+    <rdfs:range rdf:resource="#xsd:string"/>
+  </owl:DataTypeProperty>
+<owl:Class rdf:ID="MIQDirectorINFO">
+   <rdf:type rdf:resource="#Director"/>
+    <owl:sameAs rdf:resource="#ProfMoaz"/>
+  <owl:MIQDirectorInfoProperty rdf:ID="DRMM" rdf:datatype="&xsd;string"> Name: Dr.Moaz Alsherfawi Aljazaerli</owl:MIQDirectorInfoProperty>
+  <owl:MIQDirectorInfoProperty rdf:datatype="&xsd;string"> MBox: MiQ_pd@svuonline.org</owl:MIQDirectorInfoProperty>
+</owl:Class>
+  <owl:objectProperty rdf:ID="TeachersOfMIQ">
+    <rdfs:domain rdf:resource="#MIQ" />
+    <rdfs:range rdf:resource="#Person" />
+  </owl:objectProperty>
+  <owl:Class rdf:ID="TeachersOfMIQProgram">
+     <rdf:type rdf:resource="#Teacher"/>
+     <owl:TeachersOfMIQ rdf:ID="ProfMoaz">Dr.Moaz Alsherfawi Aljazaerli</owl:TeachersOfMIQ>
+     <owl:TeachersOfMIQ>Dr.Samer Dakak</owl:TeachersOfMIQ>
+     <owl:TeachersOfMIQ>Dr.Ahmad Tabbaa</owl:TeachersOfMIQ>
+     <owl:TeachersOfMIQ>Dr.abed alkareem Dakkak</owl:TeachersOfMIQ>
+     <owl:TeachersOfMIQ>Dr.Ali Youssef</owl:TeachersOfMIQ>
+     <owl:TeachersOfMIQ>Dr.baseel khoree</owl:TeachersOfMIQ>
+     <owl:TeachersOfMIQ>Dr.kholoud SALEH</owl:TeachersOfMIQ>
+     <owl:TeachersOfMIQ>Dr.Rania Almajanni</owl:TeachersOfMIQ>
+     <owl:TeachersOfMIQ>Dr.Tamim Alia</owl:TeachersOfMIQ>
+     <owl:TeachersOfMIQ>Dr.Safir Issa</owl:TeachersOfMIQ>
+  </owl:Class>
+<owl:Class rdf:ID="MBA">
+    <rdfs:subClassOf rdf:resource="#Program" />
+  </owl:Class>
+  <owl:objectProperty rdf:ID="CourseOfMBA">
+    <rdfs:domain rdf:resource="#MBA" />
+    <rdfs:range rdf:resource="#Course" />
+   <rdfs:subPropertyOf rdf:resource ="#Involves"/>
+  <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+  </owl:objectProperty>
+  <owl:Class rdf:ID="CourseOfMBAProgram">
+    <rdf:type rdf:resource="#Course"/>
+    <owl:CoursesOfMBA>Business Law</owl:CoursesOfMBA>
+      <owl:CoursesOfMBA>Data Analysis by Computer</owl:CoursesOfMBA>
+        <owl:CoursesOfMBA>Project Management</owl:CoursesOfMBA>
+        <owl:CoursesOfMBA>International Marketing and Trading</owl:CoursesOfMBA>
+          <owl:CoursesOfMBA>Management Information Systems</owl:CoursesOfMBA>
+            <owl:CoursesOfMBA>Business Research Methods</owl:CoursesOfMBA>
+              <owl:CoursesOfMBA>Financial Mangement</owl:CoursesOfMBA>
+                <owl:CoursesOfMBA>Operations Management</owl:CoursesOfMBA>
+                  <owl:CoursesOfMBA>Organizational Behavior</owl:CoursesOfMBA>
+                    <owl:CoursesOfMBA>Human Resources Management</owl:CoursesOfMBA>
+  </owl:Class>
+  <owl:DataTypeProperty rdf:ID="MBADirectorInfoProperty">  
+    <rdfs:domain rdf:resource="#MBADirectorINFO"/>
+    <rdfs:range rdf:resource="#xsd:string"/>
+  </owl:DataTypeProperty>
+<owl:Class rdf:ID="MBADirectorINFO">
+  <rdf:type rdf:resource="#Director"/>
+  <owl:sameAs rdf:resource="#profIyad"/>
+  <owl:MBADirectorInfoProperty rdf:datatype="&xsd;string"> Name: Dr.Iyad Zoukar</owl:MBADirectorInfoProperty>
+  <owl:MBADirectorInfoProperty rdf:datatype="&xsd;string"> MBox: t_izoukar@svuonline.org</owl:MBADirectorInfoProperty>
+</owl:Class>
+  <owl:objectProperty rdf:ID="TeachersOfMBA">
+    <rdfs:domain rdf:resource="#MBA" />
+    <rdfs:range rdf:resource="#Teacher" />
+  </owl:objectProperty>
+ <owl:Class rdf:ID="TeachersOfMBAProgram">
+   <rdf:type rdf:resource="#Teacher"/>
+   <owl:TeachersOfMBA rdf:ID="profIyad">Dr.Iyad Zoukar</owl:TeachersOfMBA>
+   <owl:TeachersOfMBA>Dr.amal sharba</owl:TeachersOfMBA>
+   <owl:TeachersOfMBA>Dr.Fatima Bader</owl:TeachersOfMBA>
+   <owl:TeachersOfMBA>Dr.Iman Shahrour</owl:TeachersOfMBA>
+   <owl:TeachersOfMBA>Dr.Nariman Ammar</owl:TeachersOfMBA>
+   <owl:TeachersOfMBA>Dr.suleiman ali</owl:TeachersOfMBA>
+   <owl:TeachersOfMBA>Dr.Moaz Alsabbagh</owl:TeachersOfMBA>
+   <owl:TeachersOfMBA>Dr.Shadi Zahrah</owl:TeachersOfMBA>
+   <owl:TeachersOfMBA>Dr.shaaban shoubassi</owl:TeachersOfMBA>
+   <owl:TeachersOfMBA>Dr.Souliman Awad</owl:TeachersOfMBA>
+ </owl:Class>
+</rdf:RDF>

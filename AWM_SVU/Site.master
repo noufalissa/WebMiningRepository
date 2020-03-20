@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/coin-slider.css" />
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/droid_sans_400-droid_sans_700.font.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/coin-slider.min.js"></script>
+    <style type="text/css">
+        .auto-style2 {
+            width: 914px;
+            text-align: center;
+        }
+        .auto-style3 {
+            padding: 0;
+            width: 956px;
+            float: left;
+            height: 126px;
+            background-color: #666666;
+        }
+        .auto-style4 {
+            font-size: xx-large;
+        }
+        .auto-style5 {
+            width: 963px;
+        }
+        .auto-style6 {
+            width: 84px;
+        }
+        .auto-style7 {
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+    <div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="auto-style3">
+  <%--     <a href="Default.aspx"><img  alt="Syrian Virtual University" src="images/svulogo.PNG" class="auto-style1" /></a>--%>
+          <h1 class="auto-style7">
+          <strong><em>
+          <asp:Label ID="Label1" runat="server" Text="Syrian Virtual University" CssClass="auto-style4"></asp:Label>
+          </em></strong>
+          </h1>
+      </div>
+      <div class="clr"></div>
+      <div class="slider">
+        <div id="coin-slider"> <img src="images/Slide4.jpg" height="314" alt="SVU1" class="auto-style5" /> 
+        <img src="images/Slide1.jpg"  width="960" height="314" alt="SVU2" />
+           
+             <img src="images/Slide3.jpg"  width="960" height="314" alt="SVU3" />
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+      
+      <div class="menu_nav">
+        <ul class="auto-style2">
+          <li class="auto-style6"><asp:HyperLink ID="HyperLinkHome" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink></li>
+          <li><asp:HyperLink ID="HyperLinkRDf" runat="server" NavigateUrl="~/SVUPage.aspx">Using SVU Information Model</asp:HyperLink></li>
+          <li><asp:HyperLink ID="HyperLinkdbpiedia" runat="server" NavigateUrl="~/GraphOfDataModel.aspx">Validation Graph of the data model</asp:HyperLink></li>
+          <li><asp:HyperLink ID="HyperLinkValidation" runat="server" NavigateUrl="~/DBpediaSyrianUniversities.aspx">ALL Syrian Universities from DBPedia</asp:HyperLink></li>
+      </ul>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content_resize">
+      <div>
+      <div >
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+    
+      </div>
+      
+      <div class="clr"></div>
+    </div>
+  </div>
+  
+</div>
+<div align=center>Please Visit the SVU Website <a href='http://www.svuonline.org'>SVU</a></div>
+        
+    </form>
+</body>
+</html>
