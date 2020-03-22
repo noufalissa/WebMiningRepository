@@ -36,47 +36,22 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" Runat="Server">
-    <p>
-      
-    </p>
     <p class="auto-style9">
             <span class="auto-style15">
-            <span class="auto-style6">Syrian Arab Republic<br />
-                  Ministry of Higher Education<br />
-               Syrian Virtual University</span><em><strong><span class="auto-style6"><br />
-            </span>
-            </strong></em>
-    </p>
-     </span>
+                   <span class="auto-style6">  Syrian Arab Republic  <br />
+                                               Ministry of Higher Education<br />
+                                               Syrian Virtual University
+                   </span>
+             </span>
             <span class="auto-style6">
-    <span class="auto-style15">
-     <p class="auto-style10">
-      Master in Web Sciences MWS <br />
-         Web Mining<br />
-         AWM<br />
-         F18</p>
-    <p class="auto-style10">
-        <br />
-
-     </p>
-                      <span class="auto-style14">
+                <span class="auto-style15">
+                    <p class="auto-style10">
+                             <br />
+                      </p>
+ <span class="auto-style14">
            Noufal Issa <br />
-            </span><span class="auto-style6"><br />
-
-
-    </p>
-    
-
-
-
-
-    
-</span>
-    
-
-
-
-
-    
+</span><span class="auto-style6"><br />
+ </p>
+</span>    
 </asp:Content>
 
